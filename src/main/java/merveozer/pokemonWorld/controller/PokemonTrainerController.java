@@ -25,7 +25,7 @@ public class PokemonTrainerController implements PokemonTrainerService {
 		this.pokemonTrainerService = pokemonTrainerService;
 	}
 
-	@GetMapping("pokemonTrainers")
+	@GetMapping("pokemonTrainer")
 	@Override
 	public DataResult<List<PokemonTrainer>> getAll() {
 		return this.pokemonTrainerService.getAll();

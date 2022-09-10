@@ -33,7 +33,7 @@ public class PokemonController implements PokemonService {
 		this.pokemonService = pokemonService;
 	}
 
-	@GetMapping("pokemons")
+	@GetMapping("pokemon")
 	@Override
 	public DataResult<List<Pokemon>> getAll() {
 		return this.pokemonService.getAll();

@@ -26,7 +26,7 @@ public class GameController implements GameService {
 	}
 
 	@Override
-	@GetMapping("games")
+	@GetMapping("game")
 	public DataResult<List<Game>> findAll() {
 		return this.gameService.findAll();
 	}
