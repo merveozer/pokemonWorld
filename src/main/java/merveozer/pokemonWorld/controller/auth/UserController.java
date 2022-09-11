@@ -33,7 +33,7 @@ public class UserController implements UserService{
 		return this.userService.getAll();
 	}
 
-	//refresh tokenda fk önce oradan silmek gerekiyor, şu an bu metot çalışmıyor
+	//user_id is foreign key in refresh_token table so you should delete user from refresh token firstly
 	@PostMapping("user")
 	@Override
 	public void deleteByUserName(String userName) {
