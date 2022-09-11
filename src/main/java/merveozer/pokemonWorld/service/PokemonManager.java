@@ -3,6 +3,9 @@ package merveozer.pokemonWorld.service;
 import java.util.List;
 import java.util.Map;
 
+import merveozer.pokemonWorld.communication.PokemonEventPublisher;
+import merveozer.pokemonWorld.communication.model.EventType;
+import merveozer.pokemonWorld.communication.model.KafkaTopic;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,12 +24,15 @@ public class PokemonManager implements PokemonService {
 
 	private PokemonRepository pokemonRepository;
 	private PokemonTrainerRepository pokemonTrainerRepository;
+
+	PokemonEventPublisher pokemonEventPublisher;
 	
 	@Autowired
-	public PokemonManager(PokemonRepository pokemonRepository, PokemonTrainerRepository pokemonTrainerRepository) {
+	public PokemonManager(PokemonRepository pokemonRepository, PokemonTrainerRepository pokemonTrainerRepository, PokemonEventPublisher pokemonEventPublisher) {
 		super();
 		this.pokemonRepository = pokemonRepository;
 		this.pokemonTrainerRepository = pokemonTrainerRepository;
+		this.pokemonEventPublisher = pokemonEventPublisher;
 	}
 
 	@Override
@@ -36,9 +42,15 @@ public class PokemonManager implements PokemonService {
 	}
 
 	@Override
-	public Result add(Pokemon pokemon) {
-		this.pokemonRepository.save(pokemon);
-		return new SuccessResult("Pokemon is added.");
+	public Result add(Pokemon pokemon) throws Exception {
+		try {
+			this.pokemonRepository.save(pokemon);
+			String message = "Pokemon was added successfully";
+			pokemonEventPublisher.publishEvent(EventType.CREATE, KafkaTopic.POKEMON, message);
+			return new SuccessResult("Pokemon is added.");
+		} catch (Exception e) {
+			throw new Exception(e);
+		}
 	}
 
 	@Override

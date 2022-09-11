@@ -41,7 +41,7 @@ public class PokemonController implements PokemonService {
 
 	@PostMapping("pokemon")
 	@Override
-	public Result add(@RequestBody Pokemon pokemon) {
+	public Result add(@RequestBody Pokemon pokemon) throws Exception {
 		return this.pokemonService.add(pokemon);
 	}
 

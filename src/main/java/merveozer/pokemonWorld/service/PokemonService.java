@@ -11,7 +11,7 @@ import merveozer.pokemonWorld.utility.result.Result;
 public interface PokemonService {
 
 	DataResult<List<Pokemon>> getAll();
-	Result add(Pokemon pokemon);
+	Result add(Pokemon pokemon) throws Exception;
 	Result delete(int pokemon_id);
 	Result updatePower(int pokemon_id, Map<String, Object> data);
 	Result updatePokemonTrainer(int pokemon_id, int trainer_id);
