@@ -2,7 +2,6 @@ package merveozer.pokemonWorld.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.BeanIds;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -79,64 +78,56 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	    public void configure(HttpSecurity httpSecurity) throws Exception {
 	    	httpSecurity
-	    		.authorizeRequests().antMatchers("/").permitAll()
+	    		.authorizeRequests().antMatchers("/").permitAll();
 	    		
-			    .antMatchers(HttpMethod.POST, "/api/users/deleteuser") .hasAuthority("SUPERADMIN")			 
-	    		.antMatchers(HttpMethod.GET, "/api/roles/getall")
-	    		.hasAuthority("SUPERADMIN")
-	    		.antMatchers(HttpMethod.GET, "/api/users/getallusers")
-	    		.hasAuthority("SUPERADMIN")
-	    		.antMatchers(HttpMethod.POST, "/auth/updateRole")
-	    		.hasAuthority("SUPERADMIN")
-	    		
-	    		
-	    		
-	    		.antMatchers(HttpMethod.GET, "/pokemon")
-	    		.permitAll()
-	    		
-	    		.antMatchers(HttpMethod.GET, "/pokemonsAndTrainers")
-	    		.permitAll()
-	    		
-	    		.antMatchers(HttpMethod.GET, "/powerestFivePokemon")
-	    		.permitAll()
-	    		
-	    		.antMatchers(HttpMethod.GET, "/game")
-	    		.permitAll()
-	    		
-	    		.antMatchers(HttpMethod.GET, "/pokemonTrainer")
-	    		.permitAll()
-	    		
-	    		
-	    		
-	    		.antMatchers(HttpMethod.PATCH, "/description")
-	    		.hasAnyAuthority("SUPERADMIN", "ADMIN")
-	    		
-	    		.antMatchers(HttpMethod.PATCH, "/trainer")
-	    		.hasAnyAuthority("SUPERADMIN", "ADMIN")
-	    		
-	    		.antMatchers(HttpMethod.PATCH, "/updateWinner")
-	    		.hasAnyAuthority("SUPERADMIN", "ADMIN")
-	    		
-	    			
-	    		
-	    		.antMatchers(HttpMethod.POST, "/pokemon")
-	    		.hasAnyAuthority("SUPERADMIN", "ADMIN")
-	    		
-	    		.antMatchers(HttpMethod.POST, "/game")
-	    		.hasAnyAuthority("SUPERADMIN", "ADMIN")
-	    		
-	    		
-	    		.antMatchers(HttpMethod.DELETE, "/pokemon")
-	    		.hasAnyAuthority("SUPERADMIN", "ADMIN")
-	    		
-	    		
-	    		
-	    		
-	    		.antMatchers("/auth/login")
-	    		.permitAll()
-	    		.antMatchers("/auth/register")
-	    		.permitAll()
-	    		.anyRequest().authenticated();
+			/*
+			 * .antMatchers(HttpMethod.POST, "/api/users/deleteuser")
+			 * .hasAuthority("SUPERADMIN") .antMatchers(HttpMethod.GET, "/api/roles/getall")
+			 * .hasAuthority("SUPERADMIN") .antMatchers(HttpMethod.GET,
+			 * "/api/users/getallusers") .hasAuthority("SUPERADMIN")
+			 * .antMatchers(HttpMethod.POST, "/auth/updateRole") .hasAuthority("SUPERADMIN")
+			 * 
+			 * 
+			 * 
+			 * .antMatchers(HttpMethod.GET, "/pokemon") .permitAll()
+			 * 
+			 * .antMatchers(HttpMethod.GET, "/pokemonsAndTrainers") .permitAll()
+			 * 
+			 * .antMatchers(HttpMethod.GET, "/powerestFivePokemon") .permitAll()
+			 * 
+			 * .antMatchers(HttpMethod.GET, "/game") .permitAll()
+			 * 
+			 * .antMatchers(HttpMethod.GET, "/pokemonTrainer") .permitAll()
+			 * 
+			 * 
+			 * 
+			 * .antMatchers(HttpMethod.PATCH, "/description") .hasAnyAuthority("SUPERADMIN",
+			 * "ADMIN")
+			 * 
+			 * .antMatchers(HttpMethod.PATCH, "/trainer") .hasAnyAuthority("SUPERADMIN",
+			 * "ADMIN")
+			 * 
+			 * .antMatchers(HttpMethod.PATCH, "/updateWinner")
+			 * .hasAnyAuthority("SUPERADMIN", "ADMIN")
+			 * 
+			 * 
+			 * 
+			 * .antMatchers(HttpMethod.POST, "/pokemon") .hasAnyAuthority("SUPERADMIN",
+			 * "ADMIN")
+			 * 
+			 * .antMatchers(HttpMethod.POST, "/game") .hasAnyAuthority("SUPERADMIN",
+			 * "ADMIN")
+			 * 
+			 * 
+			 * .antMatchers(HttpMethod.DELETE, "/pokemon") .hasAnyAuthority("SUPERADMIN",
+			 * "ADMIN")
+			 * 
+			 * 
+			 * 
+			 * 
+			 * .antMatchers("/auth/login") .permitAll() .antMatchers("/auth/register")
+			 * .permitAll() .anyRequest().authenticated();
+			 */
 	    		
 	    	httpSecurity
 	    		.cors()
