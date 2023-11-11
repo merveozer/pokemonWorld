@@ -5,3 +5,4 @@
 <img width="737" alt="swagger4" src="https://user-images.githubusercontent.com/74708604/189531215-4faa3e25-420d-4c62-a675-abf69148f864.PNG">
 <img width="742" alt="swagger5" src="https://user-images.githubusercontent.com/74708604/189531219-5bd412b0-0c6b-434a-a3b2-97254f40f668.PNG">
 <img width="743" alt="swagger6" src="https://user-images.githubusercontent.com/74708604/189531222-b92764bd-ea69-47e0-8ea8-4dd6f2dbcab3.PNG">
+![image](https://github.com/merveozer/pokemonWorld/assets/74708604/142ee876-da70-453d-a10f-df53a9d8bbf1)
